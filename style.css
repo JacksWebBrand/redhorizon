@@ -15,17 +15,22 @@ body {
 
 }
 
+.scroll {
+    height: 200vh;
+}
+
 .video-container {
+    position: absolute;
+    bottom: 0;
     width: 100vw;
-    padding-top: 150px;
+    z-index: -1;
 }
 
 .video-container video {
-    display: flex;
+    display: absolute;
     width: 100%;
     height: auto;
     overflow: hidden;
-    z-index: -1;
 }
 
 .logo-container {
