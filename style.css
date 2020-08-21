@@ -75,8 +75,8 @@ body {
 }
 
 .logo-container img {
-    width: 50vw;
-    min-width: 165px;
+    width: 75vw;
+    min-width: 150px;
     animation: logo-shrink 5s ease-in forwards;
 }
 
@@ -108,7 +108,7 @@ body {
 
 @keyframes logo-shrink {
     from {
-        width: 50vw;
+        width: 75vw;
     }
 
     to {
