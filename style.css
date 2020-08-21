@@ -1,0 +1,88 @@
+
+:root {
+    --primary-color: black;
+}
+
+html {
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    background: var(--primary-color);
+
+}
+
+.scroll {
+    height: 200vh;
+}
+
+.video-container {
+    width: 100vw;
+    padding-top: 150px;
+}
+
+.video-container video {
+    display: flex;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.logo-container {
+    margin: 0;
+    z-index: 1;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, 0%);
+    animation: logo-intro 5s ease-in forwards;
+}
+
+.logo-container img {
+    width: 50vw;
+    min-width: 165px;
+    animation: logo-shrink 5s ease-in forwards;
+}
+
+@keyframes logo-intro {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.85;
+    }
+
+    50% {
+        transform: translate(-50%, 0%) rotate(0);
+    }
+
+    75% {       
+        left: 50vw;
+        transform: translate(-50%, 0%) rotate(-35deg);
+    }
+
+    100% {
+        opacity: 1;
+        left: 0;
+        top: 0;
+        transform: translate(0, 0) rotate(-35deg)
+    }
+}
+
+@keyframes logo-shrink {
+    from {
+        width: 50vw;
+    }
+
+    to {
+        width: 15vw;
+    }
+}
