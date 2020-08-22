@@ -6,12 +6,12 @@ function setVideoPlaybackRate() {
     landingVideo.playbackRate = 0.5;
 }
 
+// Delay 'down to earth' text
 function downToEarth() {
     setTimeout(() => {
         scroll.style.display = 'flex';
-    }, 3000);
+    }, 2600);
 }
-
 
 // On load
 setVideoPlaybackRate();
