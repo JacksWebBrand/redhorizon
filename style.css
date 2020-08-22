@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
 :root {
-    --primary-color: black;
+    --primary-color: #fef9cc;
 }
 
 html {
@@ -14,7 +14,34 @@ html {
 
 body {
     margin: 0;
-    background: var(--primary-color);
+    background: black;
+}
+
+.welcome-text {
+    width: 95vw;
+    color: var(--primary-color);
+    display: none;
+    position: absolute;
+    justify-content: center;
+    top: 25vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    font-size: 80px;
+    animation: fade-in 2s linear;
+}
+
+.web-dev-text {
+    width: 95vw;
+    color: var(--primary-color);
+    display: none;
+    position: absolute;
+    justify-content: center;
+    top: 25vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+    animation: fade-in 2s linear;
+    letter-spacing: 20px;
 }
 
 .filler {
@@ -22,11 +49,12 @@ body {
 }
 
 .scroll {    
-    width: 100%;
-    color: #fef9cc;
+    width: 100vw;
+    color: var(--primary-color);
     display: none;
     justify-content: center;
-    margin-top: 85vh;
+    margin-top: 80vh;
+    padding: 0px;
     font-size: 2rem;
     animation: bounce 2s ease-in-out both;
     animation-iteration-count: infinite;
@@ -48,6 +76,19 @@ body {
 
 .scroll-text {
     animation: fade-in 2s linear;
+    
+    transition-duration: 1s;
+}
+
+.scroll:hover {
+    color: rgb(135, 160, 231);
+    transition-duration: 1s;
+    cursor: pointer;
+}
+
+.scroll:hover #fas {
+    color: rgb(116, 255, 197);
+    transition-duration: 1s;
 }
 
 @keyframes fade-in {
@@ -69,6 +110,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100vw;
+    height: 80vh;
     z-index: -1;
 }
 
@@ -89,7 +131,7 @@ body {
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, 0%);
-    animation: logo-intro 5s ease-in forwards;
+    animation: logo-intro 5s ease-in-out forwards;
 }
 
 .star {
@@ -123,7 +165,7 @@ body {
 
 .logo-container img {
     width: 75vw;
-    min-width: 150px;
+    min-width: 200px;
     animation: logo-shrink 5s ease-in forwards;
 }
 
@@ -132,11 +174,8 @@ body {
         opacity: 0;
     }
 
-    25% {
-        opacity: 0.85;
-    }
-
     50% {
+        opacity: 1;
         transform: translate(-50%, 0%) rotate(0);
     }
 
@@ -146,7 +185,6 @@ body {
     }
 
     100% {
-        opacity: 1;
         left: 0;
         top: 0;
         transform: translate(0, 0) rotate(-35deg)
@@ -160,5 +198,47 @@ body {
 
     to {
         width: 15vw;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .video-container {
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 1125px) {
+    .welcome-text {
+        font-size: 7vw;
+        top: 32vh;
+    }
+    .web-dev-text {
+        font-size: 3vw;
+        letter-spacing: 6px;
+        top: 30vh;
+    }
+}
+
+@media screen and (max-width: 823px) {
+    .welcome-text {
+        top: 46vh;
+    }
+    .web-dev-text {
+        top: 44vh;
+    }
+    .scroll-text {
+        font-size: 25px;
+    }
+    .scroll .fas {
+        transform: translateY(13px);
+        padding: 15px;
+    }
+}
+@media screen and (max-height: 570px) {
+    .logo-container img {
+        min-width: 100px;
+    }
+    .scroll {
+        margin-top: 70vh;
     }
 }
