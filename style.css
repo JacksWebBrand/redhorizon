@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
 :root {
     --primary-color: black;
@@ -7,16 +8,42 @@ html {
     box-sizing: border-box;
     width: 100vw;
     overflow-x: hidden;
+    font-family: 'Space Mono', monospace;
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     background: var(--primary-color);
-
 }
 
-.scroll {
+.filler {
     height: 200vh;
+}
+
+.scroll {    
+    color: whitesmoke;
+    display: none;
+    justify-content: center;
+    margin-top: 85vh;
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out both;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0px)
+    }
+    
+    50% {
+        transform: translateY(20px)
+    }
+}
+
+.scroll .fas {
+    transform: translateY(13px);
+    padding: 23px;
 }
 
 .video-container {
