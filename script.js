@@ -2,6 +2,7 @@ const landingVideo = document.getElementById('landing-video');
 const scrollMessage = document.querySelector('.scroll');
 const welcomeText = document.getElementById('welcome-text');
 const webDevText = document.getElementById('web-dev-text');
+const videoImagePlaceholder = document.getElementById('placeholder-image-container');
 
 // Set landing video playbackrate
 function setVideoPlaybackRate() {

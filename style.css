@@ -115,7 +115,22 @@ body {
 }
 
 .video-container video {
-    display: absolute;
+    display: flex;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.placeholder-image-container {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 80vh;
+    z-index: -2;
+}
+
+.placeholder-image-container img {
+    display: flex;
     width: 100%;
     height: auto;
     overflow: hidden;
@@ -203,6 +218,9 @@ body {
 
 @media screen and (max-width: 1500px) {
     .video-container {
+        height: auto;
+    }
+    .placeholder-image-container {
         height: auto;
     }
 }
