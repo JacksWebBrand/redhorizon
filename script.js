@@ -4,13 +4,26 @@ const welcomeText = document.getElementById('welcome-text');
 const webDevText = document.getElementById('web-dev-text');
 const starryNight = document.getElementById('stars-container');
 
+let intervalTimer
+
 // Set landing video playbackrate
 function setVideoPlaybackRate() {
     landingVideo.playbackRate = 0.5;
 }
 
-function randomWelcomeText() {
-    setInterval(() => {
+function changeHeaderText(message) {
+    webDevText.textContent = message;
+}
+
+function changeRepeatSpeed(interval, message) {
+    clearInterval(intervalTimer);
+    randomWelcomeText(interval);
+    changeHeaderText(message);
+    console.log('apple')
+}
+
+function randomWelcomeText(interval) {
+    intervalTimer = setInterval(() => {
         textSeed = Math.random() * 100;
         if (textSeed <= 10) {
             welcomeText.textContent = 'DATA DRIVEN';
@@ -33,7 +46,7 @@ function randomWelcomeText() {
         } else {
             welcomeText.textContent = 'INFINITELY SCALABLE';
         }
-    }, 3000)
+    }, interval)
 }
 
 function makeStar(starNumber) {
@@ -89,6 +102,8 @@ function showLandingText() {
 
 // Event Listeners
 scrollMessage.addEventListener('click', scrollToFirstContent);
+welcomeText.addEventListener('mouseover', () => {changeRepeatSpeed(10, "woah that's fast!");});
+welcomeText.addEventListener('mouseout', () => {changeRepeatSpeed(1500, "web development that's...");});
 
 window.onresize = () => { setTimeout(() => {
     determineStarNumber()
@@ -101,4 +116,4 @@ window.onload = () => { setTimeout(() => {
 // On load
 setVideoPlaybackRate();
 showLandingText();
-randomWelcomeText();
+randomWelcomeText(1500);

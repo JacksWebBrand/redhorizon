@@ -18,7 +18,7 @@ body {
 }
 
 .welcome-text {
-    width: 95vw;
+    width: max-content;
     color: var(--primary-color);
     display: none;
     position: absolute;
@@ -30,7 +30,13 @@ body {
     animation: fade-in 2s linear;
 }
 
+.welcome-text:hover {
+    cursor: pointer;
+    user-select: none;
+}
+
 .web-dev-text {
+    user-select: none;
     width: 95vw;
     color: var(--primary-color);
     display: none;
