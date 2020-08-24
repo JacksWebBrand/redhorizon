@@ -80,11 +80,11 @@ function scrollToFirstContent() {
 function showLandingText() {
     setTimeout(() => {
         scrollMessage.style.display = 'flex';
-    }, 2600);
+    }, 2500);
     setTimeout(() => {
         welcomeText.style.display = 'flex';
         webDevText.style.display = 'flex';
-    }, 4000);
+    }, 2500);
 }
 
 // Event Listeners

@@ -249,25 +249,14 @@ body {
     .scroll {
         margin-top: 80vh;
     }
-    @keyframes logo-intro {
-        0% {
-            top: 100vh;
-        }
-    
-        100% {
-            top: 50vh;
-            left: 50vw;
-            transform: translate(-50%, 0%);
-        }
-    }
 }
 
-@media screen and (max-height: 670px) {
+@media screen and (max-height: 850px) {
     .logo-container img {
         min-width: 150px;
     }
     .scroll {
-        margin-top: 80vh;
+        margin-top: 82vh;
     }
     @keyframes logo-intro {
         0% {
