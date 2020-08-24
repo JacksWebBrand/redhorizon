@@ -23,7 +23,7 @@ body {
     display: none;
     position: absolute;
     justify-content: center;
-    top: 25vh;
+    top: 20vh;
     left: 50vw;
     transform: translate(-50%,-50%);
     font-size: 80px;
@@ -36,7 +36,7 @@ body {
     display: none;
     position: absolute;
     justify-content: center;
-    top: 25vh;
+    top: 20vh;
     left: 50vw;
     transform: translate(-50%,-50%);
     font-size: 20px;
@@ -49,13 +49,12 @@ body {
 }
 
 .scroll {    
-    width: 100vw;
+    width: auto;
     color: var(--primary-color);
     display: none;
     justify-content: center;
-    margin-top: 80vh;
+    margin-top: 89vh;
     padding: 0px;
-    font-size: 2rem;
     animation: bounce 2s ease-in-out both;
     animation-iteration-count: infinite;
     transition: ease-in-out;
@@ -76,19 +75,24 @@ body {
 
 .scroll-text {
     animation: fade-in 2s linear;
-    
     transition-duration: 1s;
+    font-size: 20px;
 }
 
-.scroll:hover {
-    color: rgb(135, 160, 231);
+.scroll-content-container {
+    display: flex;
+}
+
+.scroll-content-container:hover p {
+    color: #87a0e7;
     transition-duration: 1s;
     cursor: pointer;
 }
 
-.scroll:hover #fas {
-    color: rgb(116, 255, 197);
+.scroll-content-container:hover #fas {
+    filter: brightness(0) saturate(100%) invert(79%) sepia(59%) saturate(431%) hue-rotate(88deg) brightness(104%) contrast(96%);
     transition-duration: 1s;
+    cursor: pointer;
 }
 
 @keyframes fade-in {
@@ -102,38 +106,24 @@ body {
 }
 
 .scroll .fas {
-    transform: translateY(13px);
+    margin-bottom: 5px;
     padding: 23px;
+    width: 10px;
+    height: auto;
 }
+
+/* VIDEO */
 
 .video-container {
     position: absolute;
-    bottom: 0;
     width: 100vw;
-    height: 80vh;
+    bottom: 0;
     z-index: -1;
 }
 
 .video-container video {
-    display: flex;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.placeholder-image-container {
-    position: absolute;
     bottom: 0;
-    width: 100vw;
-    height: 80vh;
-    z-index: -2;
-}
-
-.placeholder-image-container img {
-    display: flex;
     width: 100%;
-    height: auto;
-    overflow: hidden;
 }
 
 .logo-container {
@@ -143,10 +133,10 @@ body {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 50vh;
+    top: 100vh;
     left: 50vw;
     transform: translate(-50%, 0%);
-    animation: logo-intro 5s ease-in-out forwards;
+    animation: logo-intro 3s ease-out forwards;
 }
 
 .star {
@@ -181,28 +171,18 @@ body {
 .logo-container img {
     width: 75vw;
     min-width: 200px;
-    animation: logo-shrink 5s ease-in forwards;
+    animation: logo-shrink 3.5s ease-in-out forwards;
 }
+
 
 @keyframes logo-intro {
     0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-        transform: translate(-50%, 0%) rotate(0);
-    }
-
-    75% {       
-        left: 50vw;
-        transform: translate(-50%, 0%) rotate(-35deg);
     }
 
     100% {
-        left: 0;
-        top: 0;
-        transform: translate(0, 0) rotate(-35deg)
+        top: 40vh;
+        left: 50vw;
+        transform: translate(-50%, 0%);
     }
 }
 
@@ -212,9 +192,11 @@ body {
     }
 
     to {
-        width: 15vw;
+        width: 20vw;
     }
 }
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 1500px) {
     .video-container {
@@ -228,35 +210,63 @@ body {
 @media screen and (max-width: 1125px) {
     .welcome-text {
         font-size: 7vw;
-        top: 32vh;
+        top: 25vh;
     }
     .web-dev-text {
         font-size: 3vw;
         letter-spacing: 6px;
-        top: 30vh;
+        top: 23vh;
     }
 }
 
 @media screen and (max-width: 823px) {
     .welcome-text {
-        top: 46vh;
+        top: 32vh;
     }
     .web-dev-text {
-        top: 44vh;
-    }
-    .scroll-text {
-        font-size: 25px;
+        top: 30vh;
     }
     .scroll .fas {
-        transform: translateY(13px);
         padding: 15px;
     }
+    @keyframes logo-intro {
+        0% {
+            top: 100vh;
+        }
+    
+        100% {
+            top: 57vh;
+            left: 50vw;
+            transform: translate(-50%, 0%);
+        }
+    }
 }
+
 @media screen and (max-height: 570px) {
     .logo-container img {
-        min-width: 100px;
+        min-width: 150px;
     }
     .scroll {
-        margin-top: 70vh;
+        margin-top: 85vh;
+    }
+}
+
+@media screen and (max-height: 670px) {
+    .logo-container img {
+        min-width: 150px;
+    }
+    .scroll {
+        margin-top: 85vh;
+    }
+    @keyframes logo-intro {
+        0% {
+            top: 100vh;
+        }
+    
+        100% {
+            top: 55vh;
+            left: 50vw;
+            transform: translate(-50%, 0%);
+        }
     }
 }

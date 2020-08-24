@@ -2,7 +2,7 @@ const landingVideo = document.getElementById('landing-video');
 const scrollMessage = document.querySelector('.scroll');
 const welcomeText = document.getElementById('welcome-text');
 const webDevText = document.getElementById('web-dev-text');
-const videoImagePlaceholder = document.getElementById('placeholder-image-container');
+const starryNight = document.getElementById('stars-container');
 
 // Set landing video playbackrate
 function setVideoPlaybackRate() {
@@ -13,7 +13,7 @@ function randomWelcomeText() {
     setInterval(() => {
         textSeed = Math.random() * 100;
         if (textSeed <= 10) {
-            welcomeText.textContent = 'FUNCATIONALLY ADVANCED';
+            welcomeText.textContent = 'DATA DRIVEN';
         } else if (textSeed > 10 && textSeed <= 20) {
             welcomeText.textContent = 'EASILY MAINTAINED';
         } else if (textSeed > 20 && textSeed <= 30) {
@@ -36,16 +36,41 @@ function randomWelcomeText() {
     }, 3000)
 }
 
-function stars() {
-    for (var i = 0; i < 50; i++) {
-      var star = '<div class="star" style="animation: twinkle '+((Math.random()*5) + 5)+'s linear '+((Math.random()*5) + 5)+'s infinite; top: '+Math.random()*$(window).height()/1.5+'px; left: '+Math.random()*$(window).width()+'px;"></div>';
-      $('stars').append(star);
-  }  
+function makeStar(starNumber) {
+    starryNight.innerHTML = '';
+    const numberOfStars = starNumber;
+    videoTop = landingVideo.getBoundingClientRect().top;
+    videoSize = (landingVideo.getBoundingClientRect().bottom - landingVideo.getBoundingClientRect().top) / 2.25
+    for (let i = 0; i < numberOfStars; i++) {
+        let stars = document.createElement('div');
+        stars.classList.add('star');
+        const animationDuration = (Math.random()*5) + 5;
+        const animationDelay = (Math.random()*5) + 5;
+        const animationTop = Math.random()*(videoTop + videoSize);
+        const animationLeft = Math.random()*window.innerWidth;
+        starsFullAnimation = `twinkle ${animationDuration}s linear ${animationDelay}s infinite`;
+        stars.style.animation = starsFullAnimation.toString();
+        stars.style.top = `${animationTop}px`
+        stars.style.left = `${animationLeft}px`
+        starryNight.appendChild(stars);
+    }
 }
 
-function scrollToContent() {
+function determineStarNumber() {
+    const windowSize = window.innerWidth * window.innerHeight / 1000;
+    if (windowSize <= 400) {
+        makeStar(75);
+    } else if (windowSize <= 1000) {
+        makeStar(100);
+    } else {
+        makeStar(150);
+    }
+}
+
+// scroll down to first content
+function scrollToFirstContent() {
     window.scroll({
-        top: $(window).height(),
+        top: window.innerHeight,
         left: 0,
         behaviour: 'smooth',
     });
@@ -63,10 +88,17 @@ function showLandingText() {
 }
 
 // Event Listeners
-scrollMessage.addEventListener('click', scrollToContent);
+scrollMessage.addEventListener('click', scrollToFirstContent);
+
+window.onresize = () => { setTimeout(() => {
+    determineStarNumber()
+}, 100)};
+
+window.onload = () => { setTimeout(() => {
+        determineStarNumber();
+}, 100)}; 
 
 // On load
-stars();
 setVideoPlaybackRate();
 showLandingText();
 randomWelcomeText();

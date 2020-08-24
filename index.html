@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="http://www.google.com/s2/favicons?domain=spacex.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="images/logo2-icon.WebP">
     <link rel="stylesheet" href="style.css">
     <title></title>
 </head>
@@ -13,33 +11,30 @@
     <header>
         <!-- Logo Heading -->
         <div class="logo-container">
-            <img src="images/logo2-compressed.png" alt="Red Horizon Logo">
+            <img src="images/logo2-compressed.WebP" alt="Red Horizon Logo">
         </div>
         <!-- Stars container -->
-        <stars></stars>
+        <stars id="stars-container"></stars>
         <!-- Welcome Text -->
         <p class="web-dev-text" id="web-dev-text">web development that's...</p>
         <p class="welcome-text" id="welcome-text">FAST LOADING</p>
         <!-- Background Video -->
         <div class="video-container">
-            <video src="video/mars-landing-loop720p.mp4" class="landing-video" id="landing-video" autoplay loop muted></video>
-        </div>
-        <!-- Placeholder Image -->
-        <div class="placeholder-image-container" id="placeholder-image-container">
-            <img src="images/alt-video-thumb.png" alt="test" id="video-placeholder">
+            <video poster="images/alt-video-thumb.WebP" src="video/mars-720p-crop.webm" class="landing-video" id="landing-video" autoplay loop muted></video>
         </div>
     </header>
 
     <div class="scroll">
-        <i class="fas fa-sort-down scroll-text" id="fas"></i>
-        <p class="scroll-text">down to earth</p>
-        <i class="fas fa-sort-down scroll-text" id="fas"></i>
+        <div class="scroll-content-container">
+            <img src="images/sort-down-solid.svg" alt="Scroll down icon" class="fas fa-sort-down scroll-text" id="fas">
+            <p class="scroll-text">down to earth</p>
+            <img src="images/sort-down-solid.svg" alt="Scroll down icon" class="fas fa-sort-down scroll-text" id="fas">
+        </div>
     </div>
 
     <div class="filler"></div>
 
     <!-- Script -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
